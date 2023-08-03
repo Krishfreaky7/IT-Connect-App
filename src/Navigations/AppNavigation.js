@@ -11,6 +11,7 @@ import Storereport from "../Screens/Storereport";
 import StoreExterior from "../Screens/StoreExterior";
 import StoreInterior from "../Screens/StoreInterior";
 import Advertise from "../Screens/Advertise";
+import Newfile from "../Screens/Newfile";
 
 const Stack = createStackNavigator();
 
@@ -27,6 +28,7 @@ const Appnavigation = () => {
                 <Stack.Screen name="StoreExterior" component={StoreExterior} options={{headerShown: false}}/>
                 <Stack.Screen name="StoreInterior" component={StoreInterior} options={{headerShown: false}}/>
                 <Stack.Screen name="Advertise" component={Advertise} options={{headerShown: false}}/>
+                <Stack.Screen name="Newfile" component={Newfile} options={{headerShown: false}}/>
                 
             </Stack.Navigator>
         </NavigationContainer>

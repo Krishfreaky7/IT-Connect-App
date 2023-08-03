@@ -104,12 +104,12 @@ const labeldetails = [
 
 ];
 
-const Storedetails = ({ navigation, props }) => {
+const Storedetails = ({ navigation, props, route }) => {
     const [currentPosition, setcurrentPosition] = useState(0);
     const [image, setImage] = useState("");
 
 
-    const takePhotoFromCamera = () => {
+    const takePhotoFromCamera = (props) => {
         ImagePicker.openCamera({
             width: 300,
             height: 400,
@@ -130,6 +130,8 @@ const Storedetails = ({ navigation, props }) => {
             setImage(image.path);
         });
     }
+
+
 
     console.disableYellowBox = true;
     return (
@@ -200,13 +202,13 @@ const Storedetails = ({ navigation, props }) => {
                                                 return (
                                                     <View key={index} style={{ flexDirection: "row", alignItems: "center" }}>
                                                         <View style={{ flex: 0.4, width: "100%" }}>
-                                                            <Text >{item.text1}</Text>
+                                                            <Text style={styles.text}>{item.text1}</Text>
                                                         </View>
                                                         <View style={{ flex: 0.1 }}>
-                                                            <Text >{item.text2}</Text>
+                                                            <Text style={styles.text2}>{item.text2}</Text>
                                                         </View>
                                                         <View style={{ flex: 1 }}>
-                                                            <Text >{item.text3}</Text>
+                                                            <Text style={styles.text3}>{item.text3}</Text>
                                                         </View>
                                                     </View>
                                                 )
@@ -236,6 +238,7 @@ const Storedetails = ({ navigation, props }) => {
                             source={{
                                 uri: image,
                             }}
+                            
                             style={{height: 1, width: 1, opacity: 0}}
                             imageStyle={{borderRadius: 15}}
                         />
@@ -255,10 +258,11 @@ const styles = StyleSheet.create({
     card: {
         borderWidth: 1,
         borderColor: "#BEBEBE",
-        elevation: 5,
+        // elevation: 5,
         marginVertical: 5,
         padding: 15,
-        backgroundColor: "#fff"
+        backgroundColor: "#fff",
+        borderRadius: 10
     },
     header: {
         padding: 15,
@@ -295,17 +299,19 @@ const styles = StyleSheet.create({
         fontSize: 15,
         marginHorizontal: 2,
         alignContent: "flex-start",
-        marginBottom: 10
+        marginBottom: 10,
+        color: "#000"
 
     },
     text2: {
         alignContent: "flex-start",
-        marginBottom: 10
+        marginBottom: 10,
+        color: "#000"
 
     },
     text3: {
         alignContent: "flex-start",
-        color: "#000",
+        color: "#BEBEBE",
         marginBottom: 10
     },
     text4: {

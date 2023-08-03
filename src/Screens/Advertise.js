@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, Image, ScrollView, TextInput, TouchableOpacity, FlatList, SafeAreaView } from "react-native";
 import Dropdata from "./Dropdata";
+// import File from './Newfile';
+import Newfile from "./Newfile";
+import Newfile2 from "./Newfile2";
+import Newfile3 from "./Newfile3";
+import Newfile4 from "./Newfile4";
+import Newfile5 from "./Newfile5";
+import Newfile6 from "./Newfile6";
+
+import Storedetails from "./StoreDetails";
+import Storelive from "./Storelive";
 
 
 const data = [
@@ -36,17 +46,114 @@ const data = [
     },
 ]
 
-const Advertise = (props) => {
-    console.log("The image is passing ", props.route.params)
+const data2 = [
+    {
+        name: "Outside Entrance Top"
+    },
+    {
+        name: "Outside Entrance Left"
+    },
+    {
+        name: "Entry Right"
+    },
+    {
+        name: "Building Top Left"
+    },
+    {
+        name: "Staircase Left"
+    },
+]
+
+const data3 = [
+    {
+        name: "Vinyl with Signboard"
+    },
+    {
+        name: "LED - Symphony"
+    },
+    {
+        name: "3M Star Flex"
+    },
+    {
+        name: "Acrylic"
+    },
+    {
+        name: "Stainless Steel"
+    },
+]
+
+const data4 = [
+    {
+        name: "Front Light"
+    },
+    {
+        name: "Back Light"
+    },
+    {
+        name: "Non Light"
+    },
+    {
+        name: "Not Available"
+    },
+]
+
+const data5 = [
+    {
+        name: "Item One"
+    },
+    {
+        name: "Item Two"
+    },
+    {
+        name: "Item Three"
+    },
+    {
+        name: "Item Four"
+    },
+    {
+        name: "Item Five"
+    },
+]
+
+const data6 = [
+    {
+        name: "Active"
+    },
+    {
+        name: "Expired"
+    },
+    {
+        name: "Empty"
+    },
+    {
+        name: "On Brand Escalation"
+    },
+    {
+        name: "Damaged"
+    },
+]
+
+const Advertise = ({props, navigation, route}) => {
+    // console.log("The image is passing ", props.route.params)
 
     const [ValueConvertion, setValueConvertion] = useState("cm");
     const [DropValue, setDropValue] = useState("Select item");
-    const [DropValue2, setDropValue2] = useState("Select item");
+    const [DropValue2, setDropValue2] = useState("Select item");    
     const [DropValue3, setDropValue3] = useState("Select item");
+    const [DropValue4, setDropValue4] = useState("Select item");
+    const [DropValue5, setDropValue5] = useState("Select item");
+    const [DropValue6, setDropValue6] = useState("Select item");
+
     const [isClicked, setisClicked] = useState(false);
     const [isClicked2, setisClicked2] = useState(false);
     const [isClicked3, setisClicked3] = useState(false);
-    const [datas, setDatas] = useState(data);
+    const [isClicked4, setisClicked4] = useState(false);
+    const [isClicked5, setisClicked5] = useState(false);
+    const [isClicked6, setisClicked6] = useState(false);
+
+    const [selectedRadio, setSelectedRadio] = useState(0);
+
+    // const [datas, setDatas] = useState(data);
     const Convertion = () => {
         if (ValueConvertion === "cm") {
             setValueConvertion("in");
@@ -68,14 +175,21 @@ const Advertise = (props) => {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
+            <View>
+                    <TouchableOpacity style={{ alignItems: "center" }} onPress={() => navigation.navigate(Storedetails)} >
+                        <Image source={require("../images/left-arrow.png")} style={{ width: 20, height: 22 }} />
+                    </TouchableOpacity>
+                </View>
+                <View>
                 <Text style={styles.headtext}>Add Advertisement</Text>
+                </View>
             </View>
-            <ScrollView style={styles.scrollview}>
+            <ScrollView scrollEnabled={true} nestedScrollEnabled={true} style={styles.scrollview}>
 
             <View style={styles.imgback}>
                 <View style={{ marginHorizontal: 5 }}>
                     {/* <Text style={{ color: "#000" }} > {JSON.stringify(props.route.params)}</Text> */}
-                    <Text style={{ color: "#000", paddingVertical: 5 }}>Asset Image</Text>
+                    <Text style={{ color: "#000", paddingVertical: 5, fontWeight: "bold" }}>Asset Image</Text>
                     <View style={{ width: "100%" }}>
                         {/* <Image source={{ uri: props.route.params }} style={{ aspectRatio: 1 }} /> */}
                         <Image source={require("../images/Showroom1x.png")} style={{ width: "100%" }} />
@@ -84,7 +198,7 @@ const Advertise = (props) => {
                         <View style={{ margin: 5 }}>
                             <Text style={{ color: "#000", fontWeight: "bold" }}>Width</Text>
                             <View style={{ flexDirection: "row" }}>
-                                <TextInput style={styles.input} placeholder="1000"></TextInput>
+                                <TextInput style={styles.input} placeholder="1000" placeholderTextColor={"#BEBEBE"} value={Number}></TextInput>
                                 <TouchableOpacity onPress={Convertion} style={styles.button}>
                                     <Text style={styles.input2}>{ValueConvertion}</Text>
                                 </TouchableOpacity>
@@ -93,7 +207,7 @@ const Advertise = (props) => {
                         <View style={{ margin: 5 }}>
                             <Text style={{ color: "#000", fontWeight: "bold" }}>Height</Text>
                             <View style={{ flexDirection: "row" }}>
-                                <TextInput style={styles.input} placeholder="1000"></TextInput>
+                                <TextInput style={styles.input} placeholder="1000" placeholderTextColor={"#BEBEBE"} value={Number}></TextInput>
                                 <TouchableOpacity onPress={Convertion} style={styles.button}>
                                     <Text style={styles.input2}>{ValueConvertion}</Text>
                                 </TouchableOpacity>
@@ -102,7 +216,7 @@ const Advertise = (props) => {
                         <View style={{ margin: 5 }}>
                             <Text style={{ color: "#000", opacity: 0 }}>Height</Text>
                             <View style={{ flexDirection: "row" }}>
-                                <TextInput style={styles.input3} placeholder="Depth (Optional)"></TextInput>
+                                <TextInput style={styles.input3} placeholder="Depth (Optional)" placeholderTextColor={"#BEBEBE"} value={Number} ></TextInput>
                             </View>
                         </View>
                     </View>
@@ -113,7 +227,7 @@ const Advertise = (props) => {
                                 <TouchableOpacity onPress={() => {
                                     setisClicked(!isClicked);
                                 }} style={styles.drop}>
-                                    <Text style={styles.droptext}>{DropValue}</Text>
+                                    <Text style={styles.droptext}>{DropValue}...</Text>
                                     {isClicked ? (
                                         <Image source={require("../images/down-arrow.png")} style={{ width: 20, height: 20, margin: 5 }} />
                                     ) : (
@@ -123,16 +237,7 @@ const Advertise = (props) => {
                             </View>
                             {isClicked ? ( 
                                 <View style={styles.dropdownArea}>
-                                    <FlatList data={data} renderItem={({ item, index }) => {
-                                        return (
-                                            <TouchableOpacity onPress={() => {
-                                                setDropValue(item.name);
-                                                setisClicked(false);
-                                            }} style={styles.boardingItem}>
-                                                <Text>{item.name}</Text>
-                                            </TouchableOpacity>
-                                        )
-                                    }} />
+                                    <Newfile data={data} styles={styles} setDropValue={setDropValue} setisClicked={setisClicked} />
                                 </View>
                             ) : null}
 
@@ -153,16 +258,7 @@ const Advertise = (props) => {
                             </View>
                             {isClicked2 ? (
                                 <View style={styles.dropdownArea}>
-                                    <FlatList data={data} renderItem={({ item, index }) => {
-                                        return (
-                                            <TouchableOpacity onPress={() => {
-                                                setDropValue2(item.name);
-                                                setisClicked2(false);
-                                            }} style={styles.boardingItem}>
-                                                <Text>{item.name}</Text>
-                                            </TouchableOpacity>
-                                        )
-                                    }} />
+                                    <Newfile2 data={data2} styles={styles} setDropValue2={setDropValue2} setisClicked2={setisClicked2} />
                                 </View>
                             ) : null}
 
@@ -183,21 +279,137 @@ const Advertise = (props) => {
                             </View>
                             {isClicked3 ? (
                                 <View style={styles.dropdownArea}>
-                                    <FlatList data={data} renderItem={({ item, index }) => {
-                                        return (
-                                            <TouchableOpacity onPress={() => {
-                                                setDropValue3(item.name);
-                                                setisClicked3(false);
-                                            }} style={styles.boardingItem}>
-                                                <Text>{item.name}</Text>
-                                            </TouchableOpacity>
-                                        )
-                                    }} />
+                                    <Newfile3 data={data3} styles={styles} setDropValue3={setDropValue3} setisClicked3={setisClicked3} />
+                                </View>
+                            ) : null}
+
+                        </View>
+                        <View style={{ margin: 5 }}>
+                            <Text style={{ color: "#000", fontWeight: "bold" }}>Light Type</Text>
+                            <View style={{ flexDirection: "row" }}>
+                                <TouchableOpacity onPress={() => {
+                                    setisClicked4(!isClicked4);
+                                }} style={styles.drop}>
+                                    <Text style={styles.droptext}>{DropValue4}</Text>
+                                    {isClicked4 ? (
+                                        <Image source={require("../images/down-arrow.png")} style={{ width: 20, height: 20, margin: 5 }} />
+                                    ) : (
+                                        <Image source={require("../images/up-arrow.png")} style={{ width: 20, height: 20, margin: 5 }} />
+                                    )}
+                                </TouchableOpacity>
+                            </View>
+                            {isClicked4 ? (
+                                <View style={styles.dropdownArea}>
+                                    <Newfile4 data={data4} styles={styles} setDropValue4={setDropValue4} setisClicked4={setisClicked4} />
+                                </View>
+                            ) : null}
+
+                        </View>
+                        <View style={{ margin: 5 }}>
+                            <Text style={{ color: "#000", fontWeight: "bold" }}>Vendor</Text>
+                            <View style={{ flexDirection: "row" }}>
+                                <TouchableOpacity onPress={() => {
+                                    setisClicked5(!isClicked5);
+                                }} style={styles.drop}>
+                                    <Text style={styles.droptext}>{DropValue5}</Text>
+                                    {isClicked5 ? (
+                                        <Image source={require("../images/down-arrow.png")} style={{ width: 20, height: 20, margin: 5 }} />
+                                    ) : (
+                                        <Image source={require("../images/up-arrow.png")} style={{ width: 20, height: 20, margin: 5 }} />
+                                    )}
+                                </TouchableOpacity>
+                            </View>
+                            {isClicked5 ? (
+                                <View style={styles.dropdownArea}>
+                                    <Newfile5 data={data5} styles={styles} setDropValue5={setDropValue5} setisClicked5={setisClicked5} />
+                                </View>
+                            ) : null}
+
+                        </View>
+                        <View style={{ margin: 5 }}>
+                            <Text style={{ color: "#000", fontWeight: "bold" }}>Expires On</Text>
+                            <View style={{ flexDirection: "row" }}>
+                                <TouchableOpacity  style={styles.drop}>
+                                    <Text style={styles.droptext}>DD/MM/YY</Text>
+                                        <Image source={require("../images/calender.png")} style={{ width: 20, height: 20, margin: 5 }} />
+                                </TouchableOpacity>
+                            </View>
+
+                        </View>
+                        <View style={{ margin: 5 }}>
+                            <Text style={{ color: "#000", fontWeight: "bold" }}>Status</Text>
+                            <View style={{ flexDirection: "row" }}>
+                                <TouchableOpacity onPress={() => {
+                                    setisClicked6(!isClicked6);
+                                }} style={styles.drop}>
+                                    <Text style={styles.droptext}>{DropValue6}</Text>
+                                    {isClicked6 ? (
+                                        <Image source={require("../images/down-arrow.png")} style={{ width: 20, height: 20, margin: 5 }} />
+                                    ) : (
+                                        <Image source={require("../images/up-arrow.png")} style={{ width: 20, height: 20, margin: 5 }} />
+                                    )}
+                                </TouchableOpacity>
+                            </View>
+                            {isClicked6 ? (
+                                <View style={styles.dropdownArea}>
+                                    <Newfile6 data={data6} styles={styles} setDropValue6={setDropValue6} setisClicked6={setisClicked6} />
                                 </View>
                             ) : null}
 
                         </View>
                     </View>
+                    <View style={{marginVertical: 15}}>
+                    <View style={styles.radiobox}>
+                    <TouchableOpacity onPress={() => setSelectedRadio(1)}>
+                        <View style={styles.radioflex}>
+                            <View style={styles.radio}>
+                                {
+                                    selectedRadio === 1 ? <View style={styles.radiobg}></View> : null
+                                }
+                            </View>
+                            <View>
+                            <Text style={styles.radiotext}>Need</Text>
+                            <Text style={styles.radiotext}>Scafolding</Text>
+                            </View>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => setSelectedRadio(2)}>
+                        <View style={styles.radioflex}>
+                            <View style={styles.radio}>
+                                {
+                                    selectedRadio === 2 ? <View style={styles.radiobg}></View> : null
+                                }
+                            </View>
+                            <View>
+                            <Text style={styles.radiotext}>Need</Text>
+                            <Text style={styles.radiotext}>Electrician</Text>
+                            </View>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => setSelectedRadio(3)}>
+                        <View style={styles.radioflex}>
+                            <View style={styles.radio}>
+                                {
+                                    selectedRadio === 3 ? <View style={[styles.radiobg, styles.high]}></View> : null
+                                }
+                            </View>
+                            <View>
+                            <Text style={styles.radiotext}>Approvals /</Text>
+                            <Text style={styles.radiotext}>Permissions</Text>
+                            </View>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+                    </View>
+                    <View style={{margin: 10, flexDirection: "row", justifyContent: "space-evenly"}}>
+                    <TouchableOpacity onPress={() => navigation.navigate(Storelive)} style={styles.button3}>
+                                    <Text style={styles.input5}>Cancel</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() => navigation.navigate(Storedetails)} style={styles.button2}>
+                                    <Text style={styles.input4}>Save</Text>
+                                </TouchableOpacity>
+                    </View>
+                    
                 </View>
             </View>
             </ScrollView>
@@ -207,10 +419,12 @@ const Advertise = (props) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        backgroundColor: "#fff"
     },
     scrollview: {
-        flex: 1
+        flex: 1,
+        
     },
     header: {
         padding: 15,
@@ -219,7 +433,8 @@ const styles = StyleSheet.create({
         // height: 10
         shadowColor: "#000",
         shadowOffset: { width: 0, height: 5 },
-        shadowOpacity: 1
+        shadowOpacity: 1,
+        flexDirection: "row"
     },
     headtext: {
         fontSize: 15,
@@ -243,7 +458,11 @@ const styles = StyleSheet.create({
         borderTopColor: "#fff",
         // borderColor: "#000"
         // backgroundColor: '#fff',
-        marginRight: 2
+        marginRight: 2,
+        color: "#000"
+    },
+    high: {
+        fontWeight: "bold"
     },
     input2: {
         padding: 5,
@@ -265,6 +484,21 @@ const styles = StyleSheet.create({
         borderTopColor: "#fff",
         // borderColor: "#000"
         // backgroundColor: '#fff',
+        color: "#000"
+    },
+    input4: {
+        padding: 10,
+        margin: 2,
+        color: "#FB6C00",
+        textAlign: "center",
+        fontWeight: "bold"
+    },
+    input5: {
+        padding: 10,
+        margin: 2,
+        color: "#000",
+        textAlign: "center",
+        fontWeight: "bold"
     },
     button: {
         borderColor: "#FB6C00",
@@ -273,6 +507,26 @@ const styles = StyleSheet.create({
         width: 50,
         borderWidth: 1,
         height: 35
+    },
+    button2: {
+        borderColor: "#FB6C00",
+        borderRadius: 10,
+        // backgroundColor: "#fff",
+        width: 75,
+        borderWidth: 1,
+        // height: 40,
+        verticalAlign: "center",
+        margin: 5
+    },
+    button3: {
+        borderColor: "#BEBEBE",
+        borderRadius: 10,
+        // backgroundColor: "#fff",
+        width: 75,
+        borderWidth: 1,
+        // height: 40,
+        verticalAlign: "center",
+        margin: 5
     },
     drop: {
         borderColor: "#3B3B3B",
@@ -299,7 +553,8 @@ const styles = StyleSheet.create({
         marginTop: 10,
         backgroundColor: "#fff",
         elevation: 5,
-        alignSelf: "center"
+        alignSelf: "center",
+        color: "#B5B5B5"
     },
     searchInput: {
         width: "90%",
@@ -318,8 +573,37 @@ const styles = StyleSheet.create({
         borderBottomColor: "#8e8e8e",
         alignSelf: "center",
         justifyContent: "center",
-        flex: 1
-    }
+        flex: 1,
+        color: "#BEBEBE"
+    },
+    radioflex: {
+        flexDirection: "row",
+        alignItems: "center",
+        marginHorizontal: 5
+    },
+    radiobox: {
+        flexDirection: "row",
+        flexWrap: "wrap"
+    },
+    radiobg: {
+        backgroundColor: "#009600",
+        height: 10,
+        width: 11,
+        borderRadius: 20,
+        margin: 1
+    },
+    radio: {
+        height: 15,
+        width: 15,
+        borderColor: "#000",
+        borderWidth: 1,
+        borderRadius: 20,
+        margin: 10
+    },
+    radiotext: {
+        fontSize: 13,
+        color: "#000"
+    },
 })
 
 export default Advertise;

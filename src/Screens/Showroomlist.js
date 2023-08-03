@@ -145,7 +145,7 @@ const Showroomlist = ({ navigation }) => {
     <>
       <ScrollView style={styles.fullscreen}>
         <View style={styles.header}>
-          <Text style={styles.headtext}>Store Wise Assets Status</Text>
+          <Text style={styles.headtext}>Store Wise Assets Status </Text>
         </View>
         <View style={styles.Searchbar}>
           <TextInput
@@ -278,6 +278,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderColor: '#C4C4C4',
     backgroundColor: '#fff',
+    color: "#BEBEBE"
   },
   filterbutton: {
     height: 30,

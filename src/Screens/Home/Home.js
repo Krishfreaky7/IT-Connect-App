@@ -42,6 +42,7 @@ const Home = ({navigation}) => {
           onChangeText={onChangeNumber}
           value={text}
           placeholder="Search Store name, Asset id"
+          placeholderTextColor={"#BEBEBE"}
         />
         {/* <Feather name='search' style={{ fontSize: 20 }} /> */}
       </View>
@@ -113,6 +114,7 @@ const styles = StyleSheet.create({
   fullscreen: {
     flex: 1,
     height: '100%',
+    color: "#BEBEBE"
   },
   header: {
     padding: 15,
@@ -140,6 +142,7 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {width: 0, height: 1},
     shadowOpacity: 1,
+    color: "#000",
   },
   input: {
     height: 35,
@@ -150,7 +153,9 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderColor: '#C4C4C4',
     backgroundColor: '#fff',
-  },
+    color: "#BEBEBE",
+    fontWeight: "400",
+    },
   Statusbar: {
     marginTop: 7,
     padding: 10,

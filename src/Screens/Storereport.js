@@ -64,7 +64,7 @@ const Storereport = ({ navigation }) => {
             <View>
                 {Data.map((item, index) => {
                     return (
-                        <TouchableOpacity key={item.id}
+                        <TouchableOpacity key={item.id} style={styles.box}
                             onPress={() => {
                                 if (item.id === 1) {
                                     navigation.navigate(StoreExterior)
@@ -74,7 +74,7 @@ const Storereport = ({ navigation }) => {
                                 }
                             }}
                         >
-                            <View style={styles.box}>
+                            <View >
                                 <View style={{ flexDirection: "row" }}>
                                     <View style={{ backgroundColor: "#BEBEBE", paddingRight: 5 }} />
 
@@ -98,9 +98,6 @@ const Storereport = ({ navigation }) => {
                         </TouchableOpacity>
                     )
                 })}
-            </View>
-            <View>
-                <Text style={styles.labeltext} onPress={() => navigation.navigate(StoreExterior)}>Store Exterior</Text>
             </View>
         </ScrollView>
 

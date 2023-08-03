@@ -220,10 +220,13 @@ const styles = StyleSheet.create({
     },
     boxtext: {
         width: "100%",
-        fontSize: 12
+        fontSize: 12,
+        color: "#000",
+        fontWeight: "bold"
     },
     radiotext: {
         fontSize: 13,
+        color: "#000"
     },
     radio: {
         height: 15,

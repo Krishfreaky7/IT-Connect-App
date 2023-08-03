@@ -88,6 +88,7 @@ const Storelive = ({ navigation }) => {
                     style={styles.input}
                     onChangeText={onChangeNumber}
                     value={text}
+                    placeholderTextColor={"#BEBEBE"}
                     placeholder="Search Store name, Asset id"
                 />
                 {/* <Feather name='search' style={{ fontSize: 20 }} /> */}
@@ -199,6 +200,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         borderColor: "#C4C4C4",
         backgroundColor: "#fff",
+        color: "#BEBEBE"
     },
     Statusbar: {
         marginTop: 7,

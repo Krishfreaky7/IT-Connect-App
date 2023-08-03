@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ScrollView, StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from "react-native";
 // import Showroomlist from "../Showroomlist";
+import Home from './Home';
 import Storelive from '../Storelive';
 
 const cardData = [
@@ -316,11 +317,10 @@ const Assetlist = ({ navigation }) => {
 
     return (
         <>
-
             <ScrollView style={styles.fullscreen}>
             <View style={styles.header}>
                 <View>
-                    <TouchableOpacity style={{ alignItems: "center" }} onPress={() => navigation.navigate(Assetlist)} >
+                    <TouchableOpacity style={{ alignItems: "center" }} onPress={() => navigation.navigate(Home)} >
                         <Image source={require("../../images/left-arrow.png")} style={{ width: 20, height: 22 }} />
                     </TouchableOpacity>
                 </View>
@@ -334,6 +334,8 @@ const Assetlist = ({ navigation }) => {
                         onChangeText={onChangeNumber}
                         value={text}
                         placeholder="Search Store name, Asset id"
+                        placeholderTextColor={"#BEBEBE"}
+
                     />
                     {/* <TouchableOpacity style={styles.filterbutton} onPress={() => navigation.navigate(Assetlist)}>
                         <Text style={styles.filtertext}>Grid</Text>
@@ -346,7 +348,7 @@ const Assetlist = ({ navigation }) => {
         </TouchableOpacity>
                 </View>
                 {listViewVisible ? (
-        <ListView /> // Render the ListView component
+        <ListView navigation={navigation}/> // Render the ListView component
       ) : (
                 <View style={styles.cardview}>
                     {cardData.map((item, index) => {
@@ -359,11 +361,11 @@ const Assetlist = ({ navigation }) => {
                                 <View style={{ flexDirection: "row", marginVertical: 4 }}>
                                     <View style={{ flexDirection: "row", padding: 2 }}>
                                         <Text style={{ color: "#000" }}>{item.dob}</Text>
-                                        <Text style={{ paddingHorizontal: 4 }}>{item.date}</Text>
+                                        <Text style={{ paddingHorizontal: 4, color: "#BEBEBE" }}>{item.date}</Text>
                                     </View>
                                     <View style={{ flexDirection: "row", padding: 2 }}>
                                         <Text style={{ color: "#000" }}>{item.asm}</Text>
-                                        <Text style={{ paddingHorizontal: 4 }}>{item.name}</Text>
+                                        <Text style={{ paddingHorizontal: 4, color: "#BEBEBE" }}>{item.name}</Text>
                                     </View>
                                 </View>
                                 <View style={{ flexDirection: "row", marginVertical: 4, justifyContent: "space-between" }}>
@@ -398,6 +400,7 @@ const Assetlist = ({ navigation }) => {
 const styles = StyleSheet.create({
     fullscreen: {
         flex: 1,
+        color: "#BEBEBE"
     },
     header: {
         padding: 15,
@@ -435,6 +438,8 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         borderColor: "#C4C4C4",
         backgroundColor: "#fff",
+    color: "#BEBEBE",
+    fontWeight: "400"
     },
     filterbutton: {
         height: 30,
@@ -444,11 +449,13 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         borderColor: "#C4C4C4",
         backgroundColor: "#fff",
-        justifyContent: "center"
-
+        justifyContent: "center",
+        color: "#000",
+    fontWeight: "400"
     },
     filtertext: {
-        fontSize: 10
+        fontSize: 10,
+        color: "#BEBEBE"
     },
     cardview: {
         marginVertical: 15,
